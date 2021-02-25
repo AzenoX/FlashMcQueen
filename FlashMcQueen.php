@@ -58,21 +58,21 @@ class FlashMcQueen
 
             switch($msg['type']){
                 case 'success':
-                    echo '<div class="flashmcqueen__wrapper_msg" style="border-color: '.$this->success_color.'">
+                    echo '<div class="flashmcqueen__wrapper_msg" style="border-color: '.$this->success_color.';background: '.$this->success_color.'">
                         <p>'.$msg['msg'].'</p>
-                        <span class="'. $msg['type'] .'" style="background: '.$this->success_color.'">'.$this->success_icon.'</span>
+                        <span class="'. $msg['type'] .'" style="background: #fff;fill: '.$this->success_color.'">'.$this->success_icon.'</span>
                     </div>';
                     break;
                 case 'error':
-                    echo '<div class="flashmcqueen__wrapper_msg" style="border-color: '.$this->error_color.'">
+                    echo '<div class="flashmcqueen__wrapper_msg" style="border-color: '.$this->error_color.';background: '.$this->error_color.'">
                         <p>'.$msg['msg'].'</p>
-                        <span class="'. $msg['type'] .'" style="background: '.$this->error_color.'">'.$this->error_icon.'</span>
+                        <span class="'. $msg['type'] .'" style="background: #fff;fill: '.$this->error_color.'">'.$this->error_icon.'</span>
                     </div>';
                     break;
                 case 'info':
-                    echo '<div class="flashmcqueen__wrapper_msg" style="border-color: '.$this->info_color.'">
+                    echo '<div class="flashmcqueen__wrapper_msg" style="border-color: '.$this->info_color.';background: '.$this->info_color.'">
                         <p>'.$msg['msg'].'</p>
-                        <span class="'. $msg['type'] .'" style="background: '.$this->info_color.'">'.$this->info_icon.'</span>
+                        <span class="'. $msg['type'] .'" style="background: #fff;fill: '.$this->info_color.'">'.$this->info_icon.'</span>
                     </div>';
                     break;
             }
