@@ -27,56 +27,59 @@ class FlashMcQueen
     }
 
 
-    public function success($msg){
+    public function success($msg, $fadeOut = true){
         $arr = [
             "type" => "success",
-            "msg" => $msg
+            "msg" => $msg,
+            "icon" => $this->success_icon,
+            "color" => $this->success_color,
+            "fadeout" => $fadeOut,
         ];
         array_push($_SESSION['flashmcqueen'], $arr);
     }
-    public function error($msg){
+    public function error($msg, $fadeOut = true){
         $arr = [
             "type" => "error",
-            "msg" => $msg
+            "msg" => $msg,
+            "icon" => $this->error_icon,
+            "color" => $this->error_color,
+            "fadeout" => $fadeOut,
         ];
         array_push($_SESSION['flashmcqueen'], $arr);
     }
-    public function info($msg){
+    public function info($msg, $fadeOut = true){
         $arr = [
             "type" => "info",
-            "msg" => $msg
+            "msg" => $msg,
+            "icon" => $this->info_icon,
+            "color" => $this->info_color,
+            "fadeout" => $fadeOut,
+        ];
+        array_push($_SESSION['flashmcqueen'], $arr);
+    }
+    public function custom($msg, $icon, $color, $fadeOut = true){
+        $arr = [
+            "type" => "custom",
+            "msg" => $msg,
+            "icon" => $icon,
+            "color" => $color,
+            "fadeout" => $fadeOut,
         ];
         array_push($_SESSION['flashmcqueen'], $arr);
     }
 
 
-    public function display(bool $withLose = true){
+    public function display(bool $destroyAfter = true){
 
         echo '<div class="flashmcqueen__wrapper">';
 
         foreach($_SESSION['flashmcqueen'] as $msg){
 
-            switch($msg['type']){
-                case 'success':
-                    echo '<div class="flashmcqueen__wrapper_msg" style="border-color: '.$this->success_color.'">
-                        <p>'.$msg['msg'].'</p>
-                        <span class="'. $msg['type'] .'" style="background: '.$this->success_color.'">'.$this->success_icon.'</span>
-                    </div>';
-                    break;
-                case 'error':
-                    echo '<div class="flashmcqueen__wrapper_msg" style="border-color: '.$this->error_color.'">
-                        <p>'.$msg['msg'].'</p>
-                        <span class="'. $msg['type'] .'" style="background: '.$this->error_color.'">'.$this->error_icon.'</span>
-                    </div>';
-                    break;
-                case 'info':
-                    echo '<div class="flashmcqueen__wrapper_msg" style="border-color: '.$this->info_color.'">
-                        <p>'.$msg['msg'].'</p>
-                        <span class="'. $msg['type'] .'" style="background: '.$this->info_color.'">'.$this->info_icon.'</span>
-                    </div>';
-                    break;
-            }
-
+            echo '
+            <div class="flashmcqueen__wrapper_msg ' . (($msg['fadeout']) ? 'flashmc_fadeout' : '') . '" style="border-color: '.$msg['color'].';background: '.$msg['color'].'">
+                <p>'.$msg['msg'].'</p>
+                <span class="'. $msg['type'] .'" style="background: '.$this->adjustBrightness($msg['color'], -40).'">'.$msg['icon'].'</span>
+            </div>';
 
         }
 
@@ -84,9 +87,38 @@ class FlashMcQueen
 
 
 
-        if($withLose){
+        if($destroyAfter){
             $_SESSION['flashmcqueen'] = [];
         }
+    }
+
+
+    /**
+     * Adjust colors
+     *
+     * @param $hex
+     * @param $steps
+     * @return string
+     */
+    private function adjustBrightness($hex, $steps) {
+        $steps = max(-255, min(255, $steps));
+
+        $hex = str_replace('#', '', $hex);
+        if (strlen($hex) == 3) {
+            $hex = str_repeat(substr($hex,0,1), 2).str_repeat(substr($hex,1,1), 2).str_repeat(substr($hex,2,1), 2);
+        }
+
+        // Split into three parts: R, G and B
+        $color_parts = str_split($hex, 2);
+        $return = '#';
+
+        foreach ($color_parts as $color) {
+            $color   = hexdec($color);
+            $color   = max(0,min(255,$color + $steps));
+            $return .= str_pad(dechex($color), 2, '0', STR_PAD_LEFT);
+        }
+
+        return $return;
     }
 
 
