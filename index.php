@@ -22,7 +22,7 @@
 
     $flash = new FlashMcQueen();
 
-    $flash->success("Hello world");
+    $flash->success("Flash Mc Queen");
     $flash->success("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt");
     $flash->error("Lorem ipsum dolor sit amet, consectetur gfdhgdfhgfhgfj gfhgfj hgfj hgjhjezzgf gerynt");
     $flash->info("Lorem ipsum dolor sit amet, consectetur gfdhgdfhgfhgfj gfhgfj hgfj hgjhjezzgf gerynt");
