@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+}
+
+.flashmcqueen__wrapper{
+    position: fixed;
+
+    top: 100px;
+    right: 50px;
+
+    height: fit-content;
+
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: fit-content;
+
+    margin: 2%;
+
+    background: #fff;
+
+    border-left: 4px solid #000;
+    border-top: 4px solid #000;
+    border-bottom: 4px solid #000;
+}
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg > *{
+    white-space: nowrap;
+
+    padding: 1vh 0;
+}
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg > p{
+    flex: 1;
+
+    text-align: left;
+
+    margin: 0 1vh;
+}
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg > span{
+    width: 50px;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+    fill: #fff;
+}
