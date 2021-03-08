@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    font-family: 'Roboto', sans-serif;
 }
 body{
     width: 100vw;
 }
+
 
 .flashmcqueen__wrapper{
     position: fixed;
@@ -19,6 +23,39 @@ body{
     align-items: flex-end;
     flex-direction: column;
 }
+
+/*Animations*/
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@keyframes float {
+    0% {
+        filter: drop-shadow(0px 5px 4px rgba(0,0,0,0.4));
+        transform: translatey(0);
+    }
+    50% {
+        filter: drop-shadow(0px 15px 4px rgba(0,0,0,0.1));
+        transform: translatey(-5px);
+    }
+    100% {
+        filter: drop-shadow(0px 5px 4px rgba(0,0,0,0.4));
+        transform: translatey(0);
+    }
+}
+
 .flashmcqueen__wrapper .flashmcqueen__wrapper_msg{
     display: flex;
     justify-content: space-between;
@@ -34,7 +71,15 @@ body{
     border-top: 4px solid #000;
     border-bottom: 4px solid #000;*/
     border: 4px solid #000;
+
+    animation: fadeIn var(--fadeIn) ease-in-out forwards 1;
 }
+
+/*Closing animation*/
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg.flashmcqueen_close{
+    animation: fadeOut var(--fadeOut) ease-in-out forwards 1 !important;
+}
+
 .flashmcqueen__wrapper .flashmcqueen__wrapper_msg > *{
     white-space: nowrap;
 
@@ -59,3 +104,21 @@ body{
     color: #fff;
     fill: #fff;
 }
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg .flashmcqueen_icon{
+    background: #fff;
+}
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg .close{
+    transform: rotate(0deg);
+
+    transition: transform 1s cubic-bezier(.44,-0.36,.29,.84);
+}
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg .close:hover{
+    transform: rotate(360deg);
+}
+
+
+/*Animations*/
+.flashmcqueen__wrapper .flashmcqueen_floating{
+    animation: float 3s ease-in-out infinite forwards;
+}
+
