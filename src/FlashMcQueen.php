@@ -1,5 +1,7 @@
 <?php
 
+namespace AzenoX;
+
 class FlashMcQueen
 {
 

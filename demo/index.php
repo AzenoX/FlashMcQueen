@@ -2,6 +2,8 @@
 
 require "../src/FlashMcQueen.php";
 
+use AzenoX\FlashMcQueen;
+
 session_start();
 
 ?>
