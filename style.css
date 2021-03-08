@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    font-family: 'Roboto', sans-serif;
 }
 body{
     width: 100vw;
 }
+
 
 .flashmcqueen__wrapper{
     position: fixed;
@@ -19,12 +23,40 @@ body{
     align-items: flex-end;
     flex-direction: column;
 }
-.flashmcqueen__wrapper .flashmcqueen__wrapper_msg{
-    --delay: 1s;
-    --appearTime: 0.5s;
-    --disappearTime: 0.5s;
-    --stay: 3s;
 
+/*Animations*/
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@keyframes float {
+    0% {
+        filter: drop-shadow(0px 5px 4px rgba(0,0,0,0.4));
+        transform: translatey(0);
+    }
+    50% {
+        filter: drop-shadow(0px 15px 4px rgba(0,0,0,0.1));
+        transform: translatey(-5px);
+    }
+    100% {
+        filter: drop-shadow(0px 5px 4px rgba(0,0,0,0.4));
+        transform: translatey(0);
+    }
+}
+
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,25 +67,31 @@ body{
 
     background: #fff;
 
-    border-left: 4px solid #000;
+    /*border-left: 4px solid #000;
     border-top: 4px solid #000;
-    border-bottom: 4px solid #000;
-}
-.flashmcqueen__wrapper .flashmcqueen__wrapper_msg.flashmc_fadeout{
-    opacity: 0;
+    border-bottom: 4px solid #000;*/
+    border: 4px solid #000;
 
-    animation: flash_appear__in var(--appearTime) ease var(--delay) 1 forwards, flash_appear__out var(--disappearTime) ease 1 calc(var(--delay) + var(--stay)) forwards;
-    /*animation: flash_appear__in var(--appearTime) ease var(--delay) 1 forwards;*/
+    animation: fadeIn var(--fadeIn) ease-in-out forwards 1;
+}
+
+/*Closing animation*/
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg.flashmcqueen_close{
+    animation: fadeOut var(--fadeOut) ease-in-out forwards 1 !important;
+}
+
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg > *{
+    white-space: nowrap;
+
+    padding: 1vh 0;
 }
 .flashmcqueen__wrapper .flashmcqueen__wrapper_msg > p{
     flex: 1;
 
-    margin: 0 2vh;
-    padding: 1vh 0;
-
-    white-space: nowrap;
     text-align: left;
     color: #fff;
+
+    margin: 0 1vh;
 }
 .flashmcqueen__wrapper .flashmcqueen__wrapper_msg > span{
     width: 50px;
@@ -63,26 +101,23 @@ body{
     justify-content: center;
     align-items: center;
 
-    padding: 1vh 0;
-
     color: #fff;
     fill: #fff;
 }
-
-@keyframes flash_appear__in{
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg .flashmcqueen_icon{
+    background: #fff;
 }
-@keyframes flash_appear__out{
-    from{
-        opacity: 1;
-    }
-    to{
-        opacity: 0;
-        display: none;
-    }
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg .close{
+    transform: rotate(0deg);
+
+    transition: transform 1s cubic-bezier(.44,-0.36,.29,.84);
+}
+.flashmcqueen__wrapper .flashmcqueen__wrapper_msg .close:hover{
+    transform: rotate(360deg);
+}
+
+
+/*Animations*/
+.flashmcqueen__wrapper .flashmcqueen_floating{
+    animation: float 3s ease-in-out infinite forwards;
 }

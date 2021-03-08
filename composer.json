@@ -1,0 +1,13 @@
+{
+    "name": "azenox/flashmcqueen",
+    "description": "Session Based PHP Flash Messages",
+    "authors": [
+        {
+            "name": "Alexis Hayat",
+            "email": "alexis.hayat@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
