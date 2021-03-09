@@ -49,6 +49,8 @@ $flash->custom("Am a Fish", '<svg width="24" height="24" xmlns="http://www.w3.or
 $flash->display();
 ````
 
+Fell free to use and modify **style.css** in src/ directory to stylise messages.
+
 ## List of all methods
 
 ### Success
@@ -122,6 +124,11 @@ $flash->custom(string $msg, string $icon, string $color, bool $persistent = fals
   * **stay** (Default: 5): Number of seconds while the message will stay on the screen
   * **fadeOut** (Default: 1): Number of seconds of the fade out animation
 * $floatingIcon: true if the icon should be animated
+
+
+## About
+
+This is my first big project, so let me know if there are any errors or if you want me to add/modify something.
 
 
 ## License
