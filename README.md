@@ -51,7 +51,7 @@ $flash->display();
 
 ## List of all methods
 
-### A success message
+### Success
 
 `````php
 $flash->success(string $msg, bool $persistent = false, array $delays = [], bool $floatingIcon = false);
@@ -65,7 +65,7 @@ $flash->success(string $msg, bool $persistent = false, array $delays = [], bool 
   * **fadeOut** (Default: 1): Number of seconds of the fade out animation
 * $floatingIcon: true if the icon should be animated
 
-### An error message
+### Error
 
 `````php
 $flash->error(string $msg, bool $persistent = false, array $delays = [], bool $floatingIcon = false);
@@ -79,7 +79,7 @@ $flash->error(string $msg, bool $persistent = false, array $delays = [], bool $f
   * **fadeOut** (Default: 1): Number of seconds of the fade out animation
 * $floatingIcon: true if the icon should be animated
 
-### A warning message
+### Warning
 
 `````php
 $flash->warning(string $msg, bool $persistent = false, array $delays = [], bool $floatingIcon = false);
@@ -93,7 +93,7 @@ $flash->warning(string $msg, bool $persistent = false, array $delays = [], bool 
   * **fadeOut** (Default: 1): Number of seconds of the fade out animation
 * $floatingIcon: true if the icon should be animated
 
-### An info message
+### Info
 
 `````php
 $flash->info(string $msg, bool $persistent = false, array $delays = [], bool $floatingIcon = false);
@@ -107,7 +107,7 @@ $flash->info(string $msg, bool $persistent = false, array $delays = [], bool $fl
   * **fadeOut** (Default: 1): Number of seconds of the fade out animation
 * $floatingIcon: true if the icon should be animated
 
-### A custom message
+### Custom
 
 `````php
 $flash->custom(string $msg, string $icon, string $color, bool $persistent = false, array $delays = [], bool $floatingIcon = false);
