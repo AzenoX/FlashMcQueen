@@ -15,7 +15,7 @@ Store messages in sessions and display them when you need.
 Via composer
 
 ````shell
-composer install azenox/flashmcqueen
+composer require azenox/flashmcqueen
 ````
 
 Via file (Download PHP file (and style if you want), from this repository).
