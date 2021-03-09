@@ -6,8 +6,5 @@
             "name": "Alexis Hayat",
             "email": "alexis.hayat@gmail.com"
         }
-    ],
-    "require-dev": {
-        "phpunit/phpunit": "^9.5"
-    }
+    ]
 }
