@@ -24,7 +24,7 @@ Via file (Download PHP file (and style if you want), from this repository).
 require '/path/to/FlashMcQueen.php';
 ````
 
-## Basic Usage
+## Usage
 
 ````php
 require '/path/to/FlashMcQueen.php';
